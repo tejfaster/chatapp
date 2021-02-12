@@ -38,15 +38,17 @@ export default function SignIn() {
                         <Panel>
                             <div className="text-center">
                                 <h2>Welcome to Chat</h2>
-                                <p>Progressive chat platfrom fro neophytes</p>
+                                <p>Progressive chat platfrom for neophytes</p>
                             </div>
                             <div className="mt-3">
                                 <Button block color="blue" onClick={onFacebookSignIn}>
                                     <Icon icon="facebook" />
+                                    <text> Facebook</text>
                                 </Button>
 
                                 <Button block color="green" onClick={onGoogleSignIn}>
                                     <Icon icon="google" />
+                                    <text> Google</text>
                                 </Button>
                             </div>
                         </Panel>
