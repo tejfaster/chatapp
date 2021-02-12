@@ -6,7 +6,7 @@ export default function PrivateRoute({children,...routeProps}) {
 
     const profile = false;
 
-    if( profile){
+    if(profile){
         return <Redirect to='/Home' />
     }
 
