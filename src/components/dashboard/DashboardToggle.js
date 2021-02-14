@@ -7,6 +7,7 @@ export default function DashboardToggle() {
 
     const {isOpen,close,open} = useModalState()
 
+console.log(isOpen)
     return (
         <>
         <Button block color='blue' onClick={open}>
