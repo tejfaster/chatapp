@@ -12,7 +12,7 @@ export const ProfileProvider = ({ children }) => {
 
         const authUnsub = auth.onAuthStateChanged(authobj => {
             if (authobj) {
-
+                
                 userRef = database.ref(`/profiles/${authobj.uid}`)
                 userRef.on('value', (val) => {
                     const { name, createdAt } = val.val()
