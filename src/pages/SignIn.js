@@ -1,27 +1,27 @@
 import React from 'react'
 import firebase from 'firebase/app'
-import { Container, Grid, Row, Panel, Col, Button, Icon,Alert } from 'rsuite'
-import { auth , database} from '../misc/firebase'
+import { Container, Grid, Row, Panel, Col, Button, Icon, Alert } from 'rsuite'
+import { auth, database } from '../misc/firebase'
 
 export default function SignIn() {
 
-    const signInWithProvider = async(provider) => {
-        try{
-            const {additionalUserInfo,user} = await auth.signInWithPopup(provider)
+    const signInWithProvider = async (provider) => {
+        try {
+            const { additionalUserInfo, user } = await auth.signInWithPopup(provider)
             // console.log("result",result)
-            if(additionalUserInfo.isNewUser){
-               await database.ref(`/profiles/${user.uid}`).set({
-                    name:user.displayName,
-                    createdAt : firebase.database.ServerValue.TIMESTAMP
+            if (additionalUserInfo.isNewUser) {
+                await database.ref(`/profiles/${user.uid}`).set({
+                    name: user.displayName,
+                    createdAt: firebase.database.ServerValue.TIMESTAMP
                 })
             }
             Alert.success('Succesfully Signed')
         }
-        catch(error){
-            Alert.error(error.message,4000)
+        catch (error) {
+            Alert.error(error.message, 4000)
         }
-      
-     
+
+
     }
     const onFacebookSignIn = () => {
         signInWithProvider(new firebase.auth.FacebookAuthProvider())
@@ -43,12 +43,12 @@ export default function SignIn() {
                             <div className="mt-3">
                                 <Button block color="blue" onClick={onFacebookSignIn}>
                                     <Icon icon="facebook" />
-                                    <text> Facebook</text>
+                                     Facebook
                                 </Button>
 
                                 <Button block color="green" onClick={onGoogleSignIn}>
                                     <Icon icon="google" />
-                                    <text> Google</text>
+                                   Google
                                 </Button>
                             </div>
                         </Panel>
