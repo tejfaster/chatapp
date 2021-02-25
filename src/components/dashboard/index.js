@@ -3,16 +3,20 @@ import React from 'react'
 import { Alert, Button, Divider, Drawer } from 'rsuite'
 import { useProfile } from '../../context/profile.context'
 import EditableInput from '../EditableInput'
+import AvatarUploadBtn from './AvatarUploadBtn'
 import ProviderBlock from './ProviderBlock'
 
 export default function Dashboard({ onSignOut }) {
 
     const { profile } = useProfile()
     const onSave = async (newData) => {
-        const userNicknameRef = database.ref(`/profiles/${profile.uid}`).child('name')
+        const userNicknameRef = database
+        .ref(`/profiles/${profile.uid}`)
+        .child('name')
 
         try {
             await userNicknameRef.set(newData)
+
             Alert.success("Nickname has been update", 4000)
         } catch (err) {
             Alert.error(err.message, 4000)
@@ -39,6 +43,7 @@ export default function Dashboard({ onSignOut }) {
                         <h6 className='mb-2'>Nickname</h6>
                     }
                 />
+                <AvatarUploadBtn/>
             </Drawer.Body>
 
             <Drawer.Footer>
