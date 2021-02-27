@@ -30,7 +30,7 @@ export default function AvatarUploadBtn() {
     const [img, setImg] = useState(null)
     const [isLoading,setIsLoading] = useState(false)
     const avatarEditorRef = useRef()
-    const { profile } = useProfile
+    const { profile } = useProfile()
 
     const onFileInputChange = (ev) => {
         const currFiles = ev.target.files
