@@ -1,13 +1,16 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-export default function Roomitem() {
+export default function Roomitem({room}) {
+
+    const {createdAt,name} = room;
+
     return (
         <div>
          <div className="d-flex justify-content-between align-items-center">
-        <h3 className="text-disappear">Room name</h3>
+        <h3 className="text-disappear">{name}</h3>
         <TimeAgo
-        datatime={new Date()}
+        datatime={new Date(createdAt)}
         className="font-narmal text-black-45"
         />
          </div>

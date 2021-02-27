@@ -8,7 +8,7 @@ import SignIn from './pages/SignIn'
 import PrivateRoute from './components/PrivateRoute'
 import PublicRoute from './components/PublicRoute'
 import { ProfileProvider } from './context/profile.context'
-import Home from './pages/Home'
+import Home from './pages/Home/index'
 
 function App() {
   return (
